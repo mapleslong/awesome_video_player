@@ -237,7 +237,7 @@ class _AwsomeVideoPlayerState extends State<AwsomeVideoPlayer>
       return;
     }
     if (controller != null) {
-      if (controller.value.initialized) {
+      if (controller.value.isInitialized) {
         var oPosition = controller.value.position;
         var oDuration = controller.value.duration;
 
@@ -646,19 +646,19 @@ class _AwsomeVideoPlayerState extends State<AwsomeVideoPlayer>
           },
           //双击
           onDoubleTap: () {
-            if (!controller.value.initialized) return;
+            if (!controller.value.isInitialized) return;
             togglePlay();
           },
 
           /// 水平滑动 - 调节视频进度
           onHorizontalDragStart: (DragStartDetails details) {
-            if (!controller.value.initialized) return;
+            if (!controller.value.isInitialized) return;
             if (controller.value.isPlaying) {
               controller.pause();
             }
           },
           onHorizontalDragUpdate: (DragUpdateDetails details) {
-            if (!controller.value.initialized) return;
+            if (!controller.value.isInitialized) return;
             if (!showMeau) {
               setState(() {
                 showMeau = true;
@@ -681,10 +681,10 @@ class _AwsomeVideoPlayerState extends State<AwsomeVideoPlayer>
 
           /// 垂直滑动 - 调节亮度以及音量
           onVerticalDragStart: (DragStartDetails details) {
-            if (!controller.value.initialized) return;
+            if (!controller.value.isInitialized) return;
           },
           onVerticalDragUpdate: (DragUpdateDetails details) async {
-            if (!controller.value.initialized) return;
+            if (!controller.value.isInitialized) return;
             // 右侧垂直滑动 - 音量调节
             if (details.globalPosition.dx >= (screenSize.width / 2)) {
               if (details.primaryDelta > 0) {
