@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  video_player: ^2.4.0
+  video_player: ^2.2.3
   orientation: ^1.1.0
   screen: ^0.0.5
   connectivity: ^0.4.6
